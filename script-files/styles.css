@@ -70,6 +70,9 @@ h6 {
 /* VARIABLES */
 
 :root {
+  --grey-background: #d4d9d6;
+  --white-backhground: #ffffff;
+  --heart-red: #d91200;
 }
 
 /* FONTS */
@@ -93,9 +96,11 @@ html {
 
 /* FLEX ALIGNMENTS */
 
+/* FOR THE LEFT HAND SIDE */
+
 .container {
   display: flex;
-  justify-content: center;
+  /* justify-content: space-between; */
   align-items: center;
 }
 
@@ -106,7 +111,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   background-image: url("../assets/olivier-collet-1bRqiHGtPK0-unsplash.jpg");
   background-clip: border-box;
   background-origin: border-box;
@@ -128,7 +133,7 @@ html {
   justify-content: center;
   align-items: center;
   width: 100%;
-  /* background-color: rgba(0, 0, 0, 0.7); */
+  height: 70%;
 }
 
 .blk-shadow {
@@ -150,4 +155,58 @@ html {
   font-family: odin-font;
   font-size: 3rem;
   color: white;
+}
+
+.credits {
+  text-align: center;
+  font-weight: 400;
+  font-size: 0.8rem;
+  padding: 1rem 1rem;
+}
+
+.credits a:link {
+  color: white;
+}
+
+/* FOR THE SIGN UP FORM */
+
+.sign-up-form {
+  /* padding: 2rem 6rem; */
+  min-width: 75%;
+  max-width: 65%;
+  height: 100%;
+  /* THE HEIGHT SCALING NEEDS FIXING HERE */
+}
+
+.callout,
+.form-details,
+.action-btn {
+  width: 100%;
+  padding: 0 6rem;
+  flex: 1;
+  /* FLEX DOESN'T SEEM TO BE WORKING. NEEDS FIXING */
+}
+
+.sign-up-form label {
+  display: block;
+}
+
+.sign-up-form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 3rem;
+  height: 100%;
+}
+
+.prompt,
+.callout p {
+  font-size: 1.5rem;
+  max-width: max(60ch);
+}
+
+.callout,
+.action-btn {
+  background-color: var(--grey-background);
 }
