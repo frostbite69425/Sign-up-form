@@ -70,9 +70,11 @@ h6 {
 /* VARIABLES */
 
 :root {
-  --grey-background: #d4d9d6;
+  --grey-background: #eeeeee;
+  --greyer-background: #c4c0c0;
   --white-backhground: #ffffff;
   --heart-red: #d91200;
+  --heart-red-darker: #af1406;
 }
 
 /* FONTS */
@@ -88,8 +90,6 @@ html {
   font-family: Arial, Helvetica, sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
     "Open Sans", "Helvetica Neue", sans-serif;
-
-  font-size: large;
   font-weight: 600;
   font-size: 16px;
 }
@@ -107,7 +107,7 @@ html {
 .logo-background {
   min-width: 25%;
   max-width: 35%;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,6 +118,9 @@ html {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  border-right: 2px solid var(--heart-red);
+  border-bottom: 2px solid var(--heart-red);
+  border-radius: 0px 0px 15px 0px;
 }
 
 .credits {
@@ -171,42 +174,108 @@ html {
 /* FOR THE SIGN UP FORM */
 
 .sign-up-form {
-  /* padding: 2rem 6rem; */
   min-width: 75%;
   max-width: 65%;
-  height: 100%;
-  /* THE HEIGHT SCALING NEEDS FIXING HERE */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  /* gap: 1rem; */
+  height: 100dvh;
 }
 
 .callout,
 .form-details,
 .action-btn {
   width: 100%;
-  padding: 0 6rem;
+  padding: 1.5rem 6rem;
   flex: 1;
-  /* FLEX DOESN'T SEEM TO BE WORKING. NEEDS FIXING */
 }
 
-.sign-up-form label {
+.sign-up-form label,
+.sign-up-form input {
   display: block;
-}
-
-.sign-up-form {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 3rem;
-  height: 100%;
 }
 
 .prompt,
 .callout p {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 5vw, 1.5rem);
   max-width: max(60ch);
 }
 
 .callout,
 .action-btn {
   background-color: var(--grey-background);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.callout {
+  justify-content: flex-end;
+  background-image: url("../assets/konrad-rolf-V0RhqyCTDWY-unsplash.jpg");
+  background-clip: border-box;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  border-bottom: 2px solid var(--heart-red);
+  border-radius: 0px 0px 15px 15px;
+  box-shadow: 0px 5px 5px var(--heart-red-darker);
+}
+
+.action-btn {
+  justify-content: flex-start;
+  padding-top: 2.5rem;
+}
+
+.form-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+input {
+  min-width: 20rem;
+  border-radius: 3px;
+  border: 1.3px black solid;
+}
+
+.first-row,
+.second-row,
+.third-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20%;
+}
+
+.btn-class {
+  width: clamp(10rem, 11vw, 25rem);
+  padding: 0.5rem 1.7rem;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--heart-red);
+  border: 2px solid var(--heart-red-darker);
+  box-shadow: 3px 5px 5px var(--heart-red-darker);
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-class:hover {
+  transform: scale(1.04);
+}
+
+.login a {
+  color: var(--heart-red);
+  text-decoration: none;
 }
