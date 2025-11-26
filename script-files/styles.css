@@ -75,6 +75,9 @@ h6 {
   --white-backhground: #ffffff;
   --heart-red: #d91200;
   --heart-red-darker: #af1406;
+  --blue-outline: #574ed5;
+  --blue-shadow: #282097;
+  --valid-green: #26cf08;
 }
 
 /* FONTS */
@@ -82,6 +85,13 @@ h6 {
 @font-face {
   font-family: odin-font;
   src: url(../assets/Norse-Bold.otf);
+}
+
+.pixelify-sans-font {
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* GLOBAL DECLARATIONS */
@@ -129,6 +139,12 @@ html {
   /* FIX FOR STICKING THE CREDITS AT THE BOTTOM BUT I DON'T KNOW IF TIHS IS THE BEST WAY TO DO IT */
   position: absolute;
   bottom: 0;
+}
+
+.sign-up-form .credits {
+  position: relative;
+  text-align: center;
+  padding: 0.4rem 0;
 }
 
 .odin-logo {
@@ -188,7 +204,7 @@ html {
 .form-details,
 .action-btn {
   width: 100%;
-  padding: 1.5rem 6rem;
+  padding: 2.5rem 6rem;
   flex: 1;
 }
 
@@ -197,10 +213,14 @@ html {
   display: block;
 }
 
+label {
+  letter-spacing: 0.2rem;
+}
+
 .prompt,
 .callout p {
-  font-size: clamp(1rem, 5vw, 1.5rem);
-  max-width: max(60ch);
+  font-size: clamp(1rem, 5vw, 1.6rem);
+  width: 50ch;
 }
 
 .callout,
@@ -247,7 +267,8 @@ html {
 input {
   min-width: 20rem;
   border-radius: 3px;
-  border: 1.3px black solid;
+  border: 1.3px rgb(223, 222, 222) solid;
+  min-height: 1.8rem;
 }
 
 .first-row,
@@ -278,4 +299,29 @@ input {
 .login a {
   color: var(--heart-red);
   text-decoration: none;
+}
+
+/* INPUT VALIDATION SEMANTICS */
+
+input:focus {
+  box-shadow: 5px 2px 5px var(--greyer-background);
+  outline: 1px solid var(--blue-outline);
+}
+
+input:user-invalid {
+  box-shadow: 5px 2px 5px var(--greyer-background);
+  outline: 1px solid var(--heart-red);
+}
+
+input:user-valid {
+  box-shadow: 5px 2px 5px var(--greyer-background);
+  outline: 1px solid var(--valid-green);
+}
+
+.invisible {
+  display: none;
+}
+
+.visible {
+  display: block;
 }

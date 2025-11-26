@@ -10,6 +10,12 @@
     />
     <link rel="stylesheet" href="script-files/styles.css" />
     <script src="script-files/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
     <title>Sign up for Sacred Hearts Club!</title>
   </head>
   <body>
@@ -52,19 +58,31 @@
         </div>
       </div>
       <div class="sign-up-form">
-        <div class="callout">
+        <div class="callout pixelify-sans-font">
           <p>
-            Hi! Welcome to Sacred Heats Club! Where the fun doesn't end and
+            Hi! Welcome to Sacred Hearts Club! Where the fun doesn't end and
             there's endless adventures to be had! Hang out with friends, relax,
             enjoy and unwind from the day's stress with Sacred Hearts Club!
           </p>
           <div class="punchline">
             <p>Ready to get started? Hop right in!</p>
+            <div class="credits">
+              Photo by
+              <a
+                href="https://unsplash.com/@ocollet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                >Olivier Collet</a
+              >
+              on
+              <a
+                href="https://unsplash.com/photos/heart-neon-signage-1bRqiHGtPK0?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                >Unsplash</a
+              >
+            </div>
           </div>
         </div>
         <div class="form-details">
           <div class="prompt">Let's do this!</div>
-          <form class="form-layout" action="" method="get">
+          <form class="form-layout" id="form-id" action="" method="post">
             <div class="first-row">
               <label for="FIRST-NAME"
                 >FIRST NAME
@@ -73,7 +91,9 @@
                   name="FIRST-NAME"
                   id="FIRST-NAME"
                   autocomplete="given-name"
-              /></label>
+                  pattern="([a-zA-Z])+"
+                />
+              </label>
 
               <label for="LAST-NAME"
                 >LAST NAME
@@ -82,6 +102,7 @@
                   name="LAST-NAME"
                   id="LAST-NAME"
                   autocomplete="family-name"
+                  pattern="([a-zA-Z])+"
               /></label>
             </div>
             <div class="second-row">
@@ -92,6 +113,8 @@
                   name="EMAIL"
                   id="EMAIL"
                   autocomplete="email"
+                  required
+                  placeholder="example@email.com"
               /></label>
 
               <label for="PHONE-NUMBER"
@@ -101,6 +124,10 @@
                   name="PHONE-NUMBER"
                   id="PHONE-NUMBER"
                   autocomplete="tel"
+                  minlength="10"
+                  maxlength="13"
+                  placeholder="+111234567890"
+                  pattern="(\+\d{12})"
               /></label>
             </div>
             <div class="third-row">
@@ -111,6 +138,8 @@
                   name="PASSWORD"
                   id="PASSWORD"
                   autocomplete="new-password"
+                  required
+                  pattern="(.{8,15})"
               /></label>
 
               <label for="CONFIRM-PASSWORD"
@@ -120,12 +149,19 @@
                   name="CONFIRM-PASSWORD"
                   id="CONFIRM-PASSWORD"
                   autocomplete="current-password"
+                  required
+                  pattern="(.{8,15})"
               /></label>
+            </div>
+            <div class="info invisible">
+              <p>Please make sure your password is between 8 - 15 characters</p>
             </div>
           </form>
         </div>
         <div class="action-btn">
-          <button class="btn-class" type="submit">Create account</button>
+          <button class="btn-class" type="submit" form="form-id">
+            Create account
+          </button>
           <div class="login">
             Already have an account? <a href="">Log in</a>
           </div>
